@@ -42,7 +42,7 @@ void rec(int *array0, size_t s0, int *array, size_t size)
 			if (array[i] < p)
 			{
 				j++;
-				to = j;
+				to1 = j;
 				if (to1 != i && array[i] != array[to1])
 				{
 					n = array[i];
@@ -61,8 +61,8 @@ void rec(int *array0, size_t s0, int *array, size_t size)
 		}
 		if (j > 0)
 		{
-			rec(array0, size0, array, j + 1);
+			rec(array0, s0, array, j + 1);
 		}
-		rec(array0, size0, array + j + 2, size - (j + 2));
+		rec(array0, s0, array + j + 2, size - (j + 2));
 	}
 }
