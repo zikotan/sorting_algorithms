@@ -21,7 +21,7 @@ void insertion_sort_list(listint_t **list)
 			{
 				f = 0;
 				help2 = help1;
-				while (help2 && help2->n > help->next->n)
+				while (help2 && help2->n > help2->next->n)
 				{
 					to1 = help2;
 					to2 = help2->next;
@@ -41,10 +41,10 @@ void insertion_sort_list(listint_t **list)
 					if (!to2->prev)
 						*list = to2;
 					print_list(*list);
-					flag = 1;
+					f = 1;
 				}
 			}
-			if (flag == 0)
+			if (f == 0)
 				help1 = help1->next;
 		}
 	}
