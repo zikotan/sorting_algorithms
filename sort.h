@@ -41,5 +41,7 @@ void quick_sort(int *array, size_t size);
 void rec(int *array0, size_t s0, int *array, size_t size);
 void shell_sort(int *array, size_t size);
 
+void counting_sort(int *array, size_t size);
+
 #endif
 
