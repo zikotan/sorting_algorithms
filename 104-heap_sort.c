@@ -40,7 +40,7 @@ void checker(int *array, size_t s0, size_t size, size_t i)
 	int help, part1, part2;
 	size_t p1, p2;
 
-	pl = i * 2 + 1;
+	p1 = i * 2 + 1;
 	p2 = p1 + 1;
 	part1 = array[p1];
 	part2 = array[p2];
@@ -48,7 +48,7 @@ void checker(int *array, size_t s0, size_t size, size_t i)
 			|| (part1 >= part2 && part1 > array[i]
 			&& p1 < size && p2 < size))
 	{
-		help = array[i]
+		help = array[i];
 		array[i] = part1;
 		array[p1] = help;
 		print_array(array, s0);
