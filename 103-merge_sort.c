@@ -54,7 +54,7 @@ void merging(int *array, int *my_L, int *my_R, size_t size)
 	while (i < sl)
 		array[k++] = my_L[i++];
 	while (j < sr)
-		array[k++] = my_R[i++];
+		array[k++] = my_R[j++];
 	printf("[Done]: ");
 	print_array(array, size);
 }
