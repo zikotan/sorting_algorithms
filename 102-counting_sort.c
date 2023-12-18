@@ -29,7 +29,7 @@ void counting_sort(int *array, size_t size)
 	{
 		c_Array[j + 1] += c_Array[j];
 	}
-	print_array(array, size);
+	print_array(array, n + 1);
 	to = malloc(sizeof(int) * size);
 	for (i = 0; i < size; i++)
 	{
