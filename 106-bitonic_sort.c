@@ -11,44 +11,66 @@ void bitonic_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
-	recursive(array, size, 0, size, my_Up);
+	sequence(array, size, 0, size, my_Up);
 }
 
 /**
- * recursive - recursive function
+ * sequence - sequence function
  * @array: arg1
  * @size: arg2
- * @start: arg3
- * @seq: arg4
- * @flow: arg5
+ * @begin: arg3
+ * @s: arg4
+ * @f: arg5
  *
  * Return: Nothing.
  **/
-void recursive(int *array, size_t size, size_t start, size_t seq, char flow)
+void sequence(int *array, size_t size, size_t begin, size_t s, char f)
 {
-	if (seq > 1)
+	size_t c = s / 2;
+	char *str = (f == my_Up) ? "UP" : "DOWN";
+
+	if (s > 1)
 	{
-		size_t i, jump = seq / 2;
-		char *str = (flow == my_Up) ? "UP" : "DOWN";
-
-		printf("Merging [%lu/%lu] (%s):\n",
-				(unsigned long)seq, (unsigned long)size, str);
-		print_array(array + start, seq);
-		recursive(array, size, start, jump, my_Up);
-		recursive(array, size, start + jump, jump, my_Down);
-		for (i = start; i < start + jump; i++)
-		{
-			int help = array[i];
-
-			array[i] = (flow == my_Up && help > array[i + jump])
-				? array[i + jump] : help;
-			array[i + jump] = (flow == my_Up && help > array[i + jump])
-				? help : array[i + jump];
-		}
-
-		printf("Result [%lu/%lu] (%s):\n", (unsigned long)seq,
+		printf("Merging [%lu/%lu] (%s):\n", (unsigned long)s,
 				(unsigned long)size, str);
-		print_array(array + start, seq);
+		print_array(array + begin, s);
+		sequence(array, size, begin, c, my_Up);
+		sequence(array, size, begin + c, c, my_Down);
+		merge(array, size, begin, s, f);
+		printf("Result [%lu/%lu] (%s):\n",
+				(unsigned long)s, (unsigned long)size, str);
+		print_array(array + begin, s);
 	}
 }
 
+/**
+ * merge - merge function
+ * @array: arg1
+ * @size: arg2
+ * @begin: arg3
+ * @s: arg4
+ * @f: arg5
+ *
+ * Return: Nothing.
+ **/
+void merge(int *array, size_t size, size_t begin, size_t s, char f)
+{
+	size_t i, c = s / 2;
+	int help;
+
+	if (s > 1)
+	{
+		for (i = begin; i < begin + c; i++)
+		{
+			if ((f == my_Up && array[i] > array[i + c])
+				|| (f == my_Down && array[i] < array[i + c]))
+				{
+					help = *(array + i);
+					*(array + i) = *(array + i + c);
+					*(array + i + c) = help;
+				}
+		}
+		merge(array, size, begin, c, f);
+		merge(array, size, begin + c, c, f);
+	}
+}
