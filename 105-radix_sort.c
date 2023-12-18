@@ -27,8 +27,8 @@ void radix_sort(int *array, size_t size)
 		}
 		if (thing != NULL)
 		{
-			for (i = 0; i < 10; i++)
-				thing[i] = thing[i - 1];
+			for (i = 1; i < 10; i++)
+				thing[i] += thing[i - 1];
 			for (i = s - 1; i >= 0; i--)
 			{
 				new[thing[(array[i] / help) % 10] - 1] = array[i];
