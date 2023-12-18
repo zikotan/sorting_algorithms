@@ -19,7 +19,7 @@ void cocktail_sort_list(listint_t **list)
 			f = 0;
 			while (help->next)
 			{
-				if (help->n > help2->next->n)
+				if (help->n > help->next->n)
 				{
 					to = help->next;
 					exchange1(list, help, to);
