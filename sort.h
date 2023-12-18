@@ -48,6 +48,8 @@ void merging(int *array, int *my_L, int *my_R, size_t size);
 void merge_sort(int *array, size_t size);
 void checker(int *array, size_t s0, size_t size, size_t i);
 void heap_sort(int *array, size_t size);
+int max(int *array, size_t size);
+void radix_sort(int *array, size_t size);
 
 #endif
 
