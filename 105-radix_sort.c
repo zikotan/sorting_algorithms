@@ -22,7 +22,7 @@ void radix_sort(int *array, size_t size)
 		i = 0;
 		while (i < s)
 		{
-			thing[(array[i] / s) % 10]++;
+			thing[(array[i] / help) % 10]++;
 			i++;
 		}
 		if (thing != NULL)
@@ -31,13 +31,13 @@ void radix_sort(int *array, size_t size)
 				thing[i] = thing[i - 1];
 			for (i = s - 1; i >= 0; i--)
 			{
-				new[thing[(array[i] / s) % 10] - 1] = array[i];
-				thing[(array[i] / s) % 10]--;
+				new[thing[(array[i] / help) % 10] - 1] = array[i];
+				thing[(array[i] / help) % 10]--;
 			}
 			for (i = 0; i < s; i++)
 				array[i] = new[i];
 		}
-		s *= 10;
+		help *= 10;
 		print_array(array, size);
 	}
 	free(new);
