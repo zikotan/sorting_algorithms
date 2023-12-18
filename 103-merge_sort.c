@@ -19,8 +19,8 @@ void merge_sort(int *array, size_t size)
 		my_L[i] = array[i];
 	for (i = center; i < size; i++)
 		my_R[i - center] = array[i];
-	merge_sort(my_L, ceneter);
-	merge_sort(my_R, size - ceneter);
+	merge_sort(my_L, center);
+	merge_sort(my_R, size - center);
 	merging(array, my_L, my_R, size);
 }
 
