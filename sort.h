@@ -54,6 +54,8 @@ void recursive(int *array, size_t size, size_t start, size_t seq, char flow);
 void sequence(int *array, size_t size, size_t begin, size_t s, char f);
 void merge(int *array, size_t size, size_t begin, size_t s, char f);
 void bitonic_sort(int *array, size_t size);
+void version(int *array, ssize_t start, ssize_t finish, int size);
+void quick_sort_hoare(int *array, size_t size);
 
 #endif
 
